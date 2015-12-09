@@ -1,0 +1,6 @@
+[submodule "dependencies/twohundred"]
+	path = dependencies/twohundred
+	url = git@github.com:dunkelstern/twohundred.git
+[submodule "dependencies/SwiftyRegex"]
+	path = dependencies/SwiftyRegex
+	url = git@github.com:dunkelstern/SwiftyRegex.git
