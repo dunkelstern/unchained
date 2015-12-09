@@ -2,7 +2,7 @@
 //  unchained.h
 //  unchained
 //
-//  Created by Johannes Schriewer (privat) on 30/11/15.
+//  Created by Johannes Schriewer on 30/11/15.
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
