@@ -11,7 +11,7 @@ import SwiftyRegex
 
 public class FileExchangeConfig: UnchainedConfig {
 
-    public var serverName: String { return "locahost" }
+    public var serverName: String { return "localhost" }
     
     public var middleware: [UnchainedMiddleware] {
         return [UnchainedMiddleware]()
