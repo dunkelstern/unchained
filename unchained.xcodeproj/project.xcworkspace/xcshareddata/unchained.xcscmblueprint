@@ -4,15 +4,19 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "BE5BDA2E20B3974D449688AB4E7C7C69AA118665" : 0,
+    "24B51E8085BBFE2391032BD47DE7F0C6F89406E2" : 0,
     "033E2ACB2AFA9C8B7782AFA499160BC8679210D1" : 0,
-    "24B51E8085BBFE2391032BD47DE7F0C6F89406E2" : 0
+    "3DA8097D366B6AFDAEA91946C35253AA1EBC780B" : 0,
+    "BE5BDA2E20B3974D449688AB4E7C7C69AA118665" : 0,
+    "E3472B155FC961329A2EA7BFAD3AFAE6EFBD63E5" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B31D974-3207-450A-9FA0-AF64A9373C3B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "BE5BDA2E20B3974D449688AB4E7C7C69AA118665" : "unchained\/",
+    "24B51E8085BBFE2391032BD47DE7F0C6F89406E2" : "unchained\/dependencies\/SwiftyRegex\/",
     "033E2ACB2AFA9C8B7782AFA499160BC8679210D1" : "unchained\/twohundred\/",
-    "24B51E8085BBFE2391032BD47DE7F0C6F89406E2" : "unchained\/dependencies\/SwiftyRegex\/"
+    "3DA8097D366B6AFDAEA91946C35253AA1EBC780B" : "unchained\/dependencies\/Stencil\/",
+    "BE5BDA2E20B3974D449688AB4E7C7C69AA118665" : "unchained\/",
+    "E3472B155FC961329A2EA7BFAD3AFAE6EFBD63E5" : "unchained\/dependencies\/PathKit\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "unchained",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -29,9 +33,19 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "24B51E8085BBFE2391032BD47DE7F0C6F89406E2"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dunkelstern\/Stencil.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3DA8097D366B6AFDAEA91946C35253AA1EBC780B"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dunkelstern\/unchained.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BE5BDA2E20B3974D449688AB4E7C7C69AA118665"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dunkelstern\/PathKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E3472B155FC961329A2EA7BFAD3AFAE6EFBD63E5"
     }
   ]
 }

@@ -16,6 +16,7 @@
 		422B35061C0D02B1005C3606 /* unchained.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B35051C0D02B1005C3606 /* unchained.swift */; };
 		42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A5F1C17AC6C00735B38 /* SwiftyRegex.framework */; };
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
+		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,20 @@
 			remoteGlobalIDString = 42EA20D51C14DB2E00CA02D6;
 			remoteInfo = SwiftyRegex;
 		};
+		42C86AFC1C17B3A400735B38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 42C86A871C17B2C500735B38;
+			remoteInfo = Stencil;
+		};
+		42C86AFE1C17B3AE00735B38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 42C86A861C17B2C500735B38;
+			remoteInfo = Stencil;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +105,7 @@
 		422B35051C0D02B1005C3606 /* unchained.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unchained.swift; sourceTree = "<group>"; };
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
+		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */,
 				42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */,
 				42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */,
 			);
@@ -116,6 +133,7 @@
 		422570B81C0D00640011563E = {
 			isa = PBXGroup;
 			children = (
+				42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */,
 				42C86A621C17AC7100735B38 /* twohundred.xcodeproj */,
 				42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */,
 				422570ED1C0D00E70011563E /* support */,
@@ -184,6 +202,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		42C86AF81C17B3A400735B38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				42C86AFD1C17B3A400735B38 /* Stencil.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -210,6 +236,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				42C86AFF1C17B3AE00735B38 /* PBXTargetDependency */,
 				42C86A6C1C17AC7D00735B38 /* PBXTargetDependency */,
 				42C86A6E1C17AC7D00735B38 /* PBXTargetDependency */,
 			);
@@ -266,6 +293,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 42C86AF81C17B3A400735B38 /* Products */;
+					ProjectRef = 42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */;
+				},
+				{
 					ProductGroup = 42C86A571C17AC6C00735B38 /* Products */;
 					ProjectRef = 42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */;
 				},
@@ -316,6 +347,13 @@
 			fileType = wrapper.cfbundle;
 			path = tests.xctest;
 			remoteRef = 42C86A691C17AC7100735B38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		42C86AFD1C17B3A400735B38 /* Stencil.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Stencil.framework;
+			remoteRef = 42C86AFC1C17B3A400735B38 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -374,6 +412,11 @@
 			isa = PBXTargetDependency;
 			name = SwiftyRegex;
 			targetProxy = 42C86A6D1C17AC7D00735B38 /* PBXContainerItemProxy */;
+		};
+		42C86AFF1C17B3AE00735B38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Stencil;
+			targetProxy = 42C86AFE1C17B3AE00735B38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

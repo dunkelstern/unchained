@@ -4,3 +4,9 @@
 [submodule "dependencies/SwiftyRegex"]
 	path = dependencies/SwiftyRegex
 	url = git@github.com:dunkelstern/SwiftyRegex.git
+[submodule "dependencies/PathKit"]
+	path = dependencies/PathKit
+	url = git@github.com:dunkelstern/PathKit.git
+[submodule "dependencies/Stencil"]
+	path = dependencies/Stencil
+	url = git@github.com:dunkelstern/Stencil.git
