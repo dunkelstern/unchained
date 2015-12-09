@@ -17,6 +17,7 @@
 		42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A5F1C17AC6C00735B38 /* SwiftyRegex.framework */; };
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
 		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
+		42C86B381C17C14300735B38 /* responseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B371C17C14300735B38 /* responseHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
+		42C86B371C17C14300735B38 /* responseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 				422B35011C0D029B005C3606 /* config.swift */,
 				422B35031C0D02A6005C3606 /* middleware.swift */,
 				422B35051C0D02B1005C3606 /* unchained.swift */,
+				42C86B371C17C14300735B38 /* responseHandler.swift */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C86B381C17C14300735B38 /* responseHandler.swift in Sources */,
 				422B35001C0D0280005C3606 /* router.swift in Sources */,
 				422B35061C0D02B1005C3606 /* unchained.swift in Sources */,
 				422B35041C0D02A6005C3606 /* middleware.swift in Sources */,
