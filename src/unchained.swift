@@ -36,7 +36,7 @@ public class UnchainedServer: TwoHundredServer {
         // if the middleware did not yield a response execute the request
         var response: HTTPResponse?
         if result.response == nil {
-            response = self.executeRequest(request)
+            response = self.executeRequest(modifiedRequest)
         } else {
             response = result.response!
         }
