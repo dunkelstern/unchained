@@ -10,7 +10,7 @@ import twohundred
 
 /// Session Class
 public class Session {
-    static var store: SessionStore = InMemorySessionStore()
+    static var store: SessionStore = InMemorySessionStore.sharedInstance
     
     var sessionID: UUID4
     var data:[String:String]
