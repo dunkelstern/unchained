@@ -13,7 +13,7 @@ import twohundred
 public class UnchainedServer: TwoHundredServer {
 
     /// Configuration
-    var config:UnchainedConfig
+    public let config:UnchainedConfig
     
     
     /// Initialize with configuration
@@ -56,7 +56,7 @@ public class UnchainedServer: TwoHundredServer {
         
         // Walk all middleware and combine request changes, if a middleware returns a response cancel processing
         for middleware in self.config.middleware {
-            if let result = middleware.request(request) {
+            if let result = middleware.request(request, config: self.config) {
                 if let newRequest = result.request {
                     modifiedRequest = newRequest
                 }
@@ -84,7 +84,7 @@ public class UnchainedServer: TwoHundredServer {
         
         // Walk all middleware and combine responses
         for middleware in self.config.middleware {
-            if let response = middleware.response(request, response: modifiedResponse) {
+            if let response = middleware.response(request, response: modifiedResponse, config: self.config) {
                 modifiedResponse = response
             }
         }

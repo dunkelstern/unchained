@@ -19,23 +19,23 @@ public protocol UnchainedMiddleware {
     ///
     /// - parameter request: Request that is about to be processed
     /// - returns: Tuple of new HTTPRequest and HTTPResponse
-    func request(request: HTTPRequest) -> (request: HTTPRequest?, response: HTTPResponse?)?
+    func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)?
     
     /// Process a response before it will be delivered
     ///
     /// - parameter request: the request that triggered the response
     /// - parameter response: the response that is about to be delivered
     /// - returns: nil if nothing has to be changed in the response or a changed response object
-    func response(request: HTTPRequest, response: HTTPResponse) -> HTTPResponse?
+    func response(request: HTTPRequest, response: HTTPResponse, config: UnchainedConfig) -> HTTPResponse?
 }
 
 /// Default implementation does nothing
 extension UnchainedMiddleware {
-    public func request(request: HTTPRequest) -> (request: HTTPRequest?, response: HTTPResponse?)? {
+    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {
         return nil // do nothing to neither request nor response
     }
     
-    public func response(request: HTTPRequest, response: HTTPResponse) -> HTTPResponse? {
+    public func response(request: HTTPRequest, response: HTTPResponse, config: UnchainedConfig) -> HTTPResponse? {
         return nil // do nothing to response
     }
 }
