@@ -22,6 +22,7 @@
 		42C86B481C190C7B00735B38 /* session_backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B471C190C7B00735B38 /* session_backend.swift */; };
 		42C86B4A1C190C8900735B38 /* session_backend_inmemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B491C190C8900735B38 /* session_backend_inmemory.swift */; };
 		42C86B4C1C190CC900735B38 /* session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B4B1C190CC900735B38 /* session.swift */; };
+		42C86B4E1C1A1E6400735B38 /* post_urlencoded_middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B4D1C1A1E6400735B38 /* post_urlencoded_middleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		42C86B471C190C7B00735B38 /* session_backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend.swift; sourceTree = "<group>"; };
 		42C86B491C190C8900735B38 /* session_backend_inmemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend_inmemory.swift; sourceTree = "<group>"; };
 		42C86B4B1C190CC900735B38 /* session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session.swift; sourceTree = "<group>"; };
+		42C86B4D1C1A1E6400735B38 /* post_urlencoded_middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = post_urlencoded_middleware.swift; path = middleware/post_urlencoded_middleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +227,7 @@
 		42C86B401C18E8AD00735B38 /* middleware */ = {
 			isa = PBXGroup;
 			children = (
+				42C86B4D1C1A1E6400735B38 /* post_urlencoded_middleware.swift */,
 				42C86B411C18EA0A00735B38 /* session_middleware.swift */,
 				42C86B461C190C4C00735B38 /* session */,
 			);
@@ -418,6 +421,7 @@
 				422B35001C0D0280005C3606 /* router.swift in Sources */,
 				42C86B4A1C190C8900735B38 /* session_backend_inmemory.swift in Sources */,
 				422B35061C0D02B1005C3606 /* unchained.swift in Sources */,
+				42C86B4E1C1A1E6400735B38 /* post_urlencoded_middleware.swift in Sources */,
 				422B35041C0D02A6005C3606 /* middleware.swift in Sources */,
 				42C86B421C18EA0A00735B38 /* session_middleware.swift in Sources */,
 				422B35021C0D029B005C3606 /* config.swift in Sources */,
