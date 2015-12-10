@@ -18,6 +18,10 @@
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
 		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
 		42C86B381C17C14300735B38 /* responseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B371C17C14300735B38 /* responseHandler.swift */; };
+		42C86B421C18EA0A00735B38 /* session_middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B411C18EA0A00735B38 /* session_middleware.swift */; };
+		42C86B481C190C7B00735B38 /* session_backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B471C190C7B00735B38 /* session_backend.swift */; };
+		42C86B4A1C190C8900735B38 /* session_backend_inmemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B491C190C8900735B38 /* session_backend_inmemory.swift */; };
+		42C86B4C1C190CC900735B38 /* session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B4B1C190CC900735B38 /* session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +112,10 @@
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
 		42C86B371C17C14300735B38 /* responseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseHandler.swift; sourceTree = "<group>"; };
+		42C86B411C18EA0A00735B38 /* session_middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = session_middleware.swift; path = ../session_middleware.swift; sourceTree = "<group>"; };
+		42C86B471C190C7B00735B38 /* session_backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend.swift; sourceTree = "<group>"; };
+		42C86B491C190C8900735B38 /* session_backend_inmemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend_inmemory.swift; sourceTree = "<group>"; };
+		42C86B4B1C190CC900735B38 /* session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +185,7 @@
 		422B34FD1C0D01FB005C3606 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				42C86B401C18E8AD00735B38 /* middleware */,
 				422B34FF1C0D0280005C3606 /* router.swift */,
 				422B35011C0D029B005C3606 /* config.swift */,
 				422B35031C0D02A6005C3606 /* middleware.swift */,
@@ -211,6 +220,26 @@
 				42C86AFD1C17B3A400735B38 /* Stencil.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		42C86B401C18E8AD00735B38 /* middleware */ = {
+			isa = PBXGroup;
+			children = (
+				42C86B461C190C4C00735B38 /* session */,
+			);
+			name = middleware;
+			sourceTree = "<group>";
+		};
+		42C86B461C190C4C00735B38 /* session */ = {
+			isa = PBXGroup;
+			children = (
+				42C86B411C18EA0A00735B38 /* session_middleware.swift */,
+				42C86B471C190C7B00735B38 /* session_backend.swift */,
+				42C86B491C190C8900735B38 /* session_backend_inmemory.swift */,
+				42C86B4B1C190CC900735B38 /* session.swift */,
+			);
+			name = session;
+			path = middleware/session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,9 +413,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				42C86B381C17C14300735B38 /* responseHandler.swift in Sources */,
+				42C86B4C1C190CC900735B38 /* session.swift in Sources */,
+				42C86B481C190C7B00735B38 /* session_backend.swift in Sources */,
 				422B35001C0D0280005C3606 /* router.swift in Sources */,
+				42C86B4A1C190C8900735B38 /* session_backend_inmemory.swift in Sources */,
 				422B35061C0D02B1005C3606 /* unchained.swift in Sources */,
 				422B35041C0D02A6005C3606 /* middleware.swift in Sources */,
+				42C86B421C18EA0A00735B38 /* session_middleware.swift in Sources */,
 				422B35021C0D029B005C3606 /* config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
