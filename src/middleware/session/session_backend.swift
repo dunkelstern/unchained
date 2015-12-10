@@ -10,8 +10,6 @@ import twohundred
 
 /// Session store protocol
 public protocol SessionStore {
-    static var sharedInstance: SessionStore { get }
-    
     func storeSession(session: Session)
     func restoreSession(sessionID: UUID4) -> Session?
 }

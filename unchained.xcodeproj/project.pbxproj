@@ -112,7 +112,7 @@
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
 		42C86B371C17C14300735B38 /* responseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = responseHandler.swift; sourceTree = "<group>"; };
-		42C86B411C18EA0A00735B38 /* session_middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = session_middleware.swift; path = ../session_middleware.swift; sourceTree = "<group>"; };
+		42C86B411C18EA0A00735B38 /* session_middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = session_middleware.swift; path = middleware/session_middleware.swift; sourceTree = "<group>"; };
 		42C86B471C190C7B00735B38 /* session_backend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend.swift; sourceTree = "<group>"; };
 		42C86B491C190C8900735B38 /* session_backend_inmemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session_backend_inmemory.swift; sourceTree = "<group>"; };
 		42C86B4B1C190CC900735B38 /* session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = session.swift; sourceTree = "<group>"; };
@@ -225,6 +225,7 @@
 		42C86B401C18E8AD00735B38 /* middleware */ = {
 			isa = PBXGroup;
 			children = (
+				42C86B411C18EA0A00735B38 /* session_middleware.swift */,
 				42C86B461C190C4C00735B38 /* session */,
 			);
 			name = middleware;
@@ -233,7 +234,6 @@
 		42C86B461C190C4C00735B38 /* session */ = {
 			isa = PBXGroup;
 			children = (
-				42C86B411C18EA0A00735B38 /* session_middleware.swift */,
 				42C86B471C190C7B00735B38 /* session_backend.swift */,
 				42C86B491C190C8900735B38 /* session_backend_inmemory.swift */,
 				42C86B4B1C190CC900735B38 /* session.swift */,

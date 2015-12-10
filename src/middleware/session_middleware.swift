@@ -9,8 +9,10 @@
 import twohundred
 
 public class SessionMiddleware: UnchainedMiddleware {
-    public init() {
-        
+    let store: SessionStore
+    
+    public init(store: SessionStore) {
+        self.store = store
     }
     
     public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {
@@ -24,12 +26,16 @@ public class SessionMiddleware: UnchainedMiddleware {
             }
         }
         if let sessionID = sessionID {
-            modifiedRequest.session = Session.restore(sessionID)
+            if let id = UUID4(string: sessionID) {
+                modifiedRequest.session = self.store.restoreSession(id)
+            }
         }
         
         // restart a new session if session ID restore failed
         if modifiedRequest.session == nil {
-            modifiedRequest.session = Session()
+            let newSession = Session()
+            self.store.storeSession(newSession)
+            modifiedRequest.session = newSession
         }
         return (request: modifiedRequest, response: nil)
     }

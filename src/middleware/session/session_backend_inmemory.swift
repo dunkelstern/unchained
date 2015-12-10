@@ -10,9 +10,11 @@ import twohundred
 
 /// In memory session store, only use for debugging purposes
 public class InMemorySessionStore: SessionStore {
-    public static let sharedInstance: SessionStore = InMemorySessionStore()
-    
     private var sessions = [UUID4:Session]()
+    
+    public init() {
+        
+    }
     
     public func storeSession(session: Session) {
         sessions[session.sessionID] = session

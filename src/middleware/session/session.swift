@@ -10,23 +10,13 @@ import twohundred
 
 /// Session Class
 public class Session {
-    static var store: SessionStore = InMemorySessionStore.sharedInstance
-    
     var sessionID: UUID4
     var data:[String:String]
-    
-    public class func restore(sessionID: String) -> Session? {
-        if let id = UUID4(string: sessionID) {
-            return Session.store.restoreSession(id)
-        }
-        return nil
-    }
     
     public init() {
         self.sessionID = UUID4()
         self.data = [String:String]()
         // TODO: save creation date
-        Session.store.storeSession(self)
     }
 }
 
