@@ -8,13 +8,12 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- Request dispatcher
+- Session middleware
 - Templating engine (Stencil + Glue code)
 
 ### TODO
 
 - User model
-- Session middleware
 - CSRF middleware
 - HTTP Server Linux (Swift is missing GCD on linux)
 - Multipart Request bodies (file uploads from browser)
@@ -36,4 +35,5 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Streaming download of files
 - RegEx processing for routes
 - Request routing
+- Request dispatcher
 
