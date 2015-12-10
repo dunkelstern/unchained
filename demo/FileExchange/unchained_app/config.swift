@@ -14,7 +14,10 @@ public class FileExchangeConfig: UnchainedConfig {
     public var serverName: String { return "localhost" }
     
     public var middleware: [UnchainedMiddleware] {
-        return [ SessionMiddleware(store: InMemorySessionStore()) ]
+        return [
+            SessionMiddleware(store: InMemorySessionStore()),
+            URLEncodedPostMiddleware()
+        ]
     }
     
     public var routes: [UnchainedRoute] {

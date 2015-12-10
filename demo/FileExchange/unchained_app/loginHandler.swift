@@ -17,6 +17,17 @@ public class LoginHandler: UnchainedResponseHandler {
     }
     
     public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
-        return HTTPResponse(.Ok, body: [.StringData("Hello world!")])
+        return HTTPResponse(.Ok, body: [.StringData("<html><body><form method='POST' action='/login'><input type='text' name='username'><br><input type='password' name='password'><br><input type='submit'></form></body></html>")])
+    }
+    
+    public func post(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+        if let postData = request.postData {
+            var responseString = ""
+            for (name, value) in postData {
+                responseString.appendContentsOf("\(name) = \(value)<br>")
+            }
+            return HTTPResponse(.Ok, body: [.StringData(responseString)], contentType: "text/html")
+        }
+        return HTTPResponse(.BadRequest)
     }
 }
