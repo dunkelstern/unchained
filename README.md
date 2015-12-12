@@ -8,23 +8,23 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- Session middleware
+- Multipart Request bodies (file uploads from browser)
 - Templating engine (Stencil + Glue code)
 
 ### TODO
 
 - User model
 - CSRF middleware
-- HTTP Server Linux (Swift is missing GCD on linux)
-- Multipart Request bodies (file uploads from browser)
-- WWW-URL-Encoded forms
-- Big file caching while upload
-- Chunked responses (continuing file downloads)
 - JSON Response Serializer
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for static files, media uploads and temporary files
+- Static file server response handlers (Should support HEAD requests)
 - Configuration for DB backends
+- Session Middleware backends other than in memory
+- HTTP Server Linux (Swift is missing GCD on linux)
+- Big file caching while upload
 - Caching mechanism (perhaps backed by redis)
+- Chunked responses (continuing file downloads)
 
 ### Done
 
@@ -36,4 +36,6 @@ See `demo/FileExchange` for a OSX demonstration app.
 - RegEx processing for routes
 - Request routing
 - Request dispatcher
+- Session middleware
+- WWW-URL-Encoded forms
 
