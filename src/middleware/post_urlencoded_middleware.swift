@@ -48,21 +48,3 @@ public class URLEncodedPostMiddleware: UnchainedMiddleware {
     }
 }
 
-/// PostData extension for HTTPRequest
-extension HTTPRequest {
-    
-    /// Decoded POST data
-    public var postData:[String:String]? {
-        
-        get {
-            if case let postData as [String:String] = self.middlewareData["postData"] {
-                return postData
-            }
-            return nil
-        }
-        
-        set(newValue) {
-            self.middlewareData["postData"] = newValue
-        }
-    }
-}
