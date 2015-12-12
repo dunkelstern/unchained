@@ -16,7 +16,8 @@ public class FileExchangeConfig: UnchainedConfig {
     public var middleware: [UnchainedMiddleware] {
         return [
             SessionMiddleware(store: InMemorySessionStore()),
-            URLEncodedPostMiddleware()
+            URLEncodedPostMiddleware(),
+            MultipartPostMiddleware()
         ]
     }
     
