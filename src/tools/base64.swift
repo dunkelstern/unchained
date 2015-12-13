@@ -6,15 +6,28 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
+/// Base64 alphabet
 public enum Base64Alphabet: String {
+    /// default alphabet
     case Default       = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+    
+    /// URL type alphabet
     case URL           = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_"
+    
+    /// XML name alphabet
     case XMLName       = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.-"
+    
+    /// XML identifier alphabet
     case XMLIdentifier = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_:"
+    
+    /// alphabet for file names
     case Filename      = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+-"
+    
+    /// alphabet for regular expressions
     case RegEx         = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!-"
 }
 
+/// Base64 decoding and encoding
 public class Base64 {
 
     /// Encode data with Base64 encoding
