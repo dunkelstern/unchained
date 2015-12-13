@@ -8,6 +8,20 @@
 
 import twohundred
 
+public class UploadedFile {
+    public let data:[UInt8]
+    public var filename:String
+    public var mimeType:String
+    
+    // TODO: Write data to temp file and mmap back in on request
+    
+    public init(data: [UInt8], filename: String, mimeType: String = "application/octet-stream") {
+        self.data = data
+        self.filename = filename
+        self.mimeType = mimeType
+    }
+}
+
 /// PostData extension for HTTPRequest
 extension HTTPRequest {
     
@@ -27,10 +41,10 @@ extension HTTPRequest {
     }
 
     /// File upload data
-    public var files:[String:[UInt8]]? {
+    public var files:[String:UploadedFile]? {
         
         get {
-            if case let files as [String:[UInt8]] = self.middlewareData["fileData"] {
+            if case let files as [String:UploadedFile] = self.middlewareData["fileData"] {
                 return files
             }
             return nil

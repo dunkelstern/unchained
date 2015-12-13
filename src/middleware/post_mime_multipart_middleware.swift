@@ -64,7 +64,7 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
             modifiedRequest.postData = [String:String]()
         }
         if modifiedRequest.files == nil {
-            modifiedRequest.files = [String:[UInt8]]()
+            modifiedRequest.files = [String:UploadedFile]()
         }
         
         // parse parts
@@ -81,8 +81,8 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
                 if let value = result.value {
                     modifiedRequest.postData![result.name] = value
                 }
-                if let data = result.data {
-                    modifiedRequest.files![result.name] = data
+                if let file = result.file {
+                    modifiedRequest.files![result.name] = file
                 }
             }
         }
@@ -90,8 +90,7 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
         return (request: modifiedRequest, response: nil)
     }
     
-    // FIXME: return mime type for data too
-    private func parsePart(data: ArraySlice<UInt8>) -> (name: String, value: String?, data: [UInt8]?)? {
+    private func parsePart(data: ArraySlice<UInt8>) -> (name: String, value: String?, file: UploadedFile?)? {
         var gen = data.generate()
         var headers = [UInt8]()
         
@@ -121,6 +120,8 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
         var isFormData: Bool = false
         var outData = [UInt8]()
         var name:String? = nil
+        var filename:String? = nil
+        var mime:String? = nil
         for header in result {
             switch header.name {
             case "content-disposition":
@@ -139,10 +140,20 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
                                 }
                             }
                         }
+                    } else if tmp.hasPrefix("filename") {
+                        let subparts = part.componentsSeparatedByString("=")
+                        if subparts.count == 2 {
+                            filename = subparts[1]
+                            if filename!.hasPrefix("\"") {
+                                if filename!.hasSuffix("\"") {
+                                    filename = filename!.substringWithRange(filename!.startIndex.advancedBy(1)..<filename!.startIndex.advancedBy(filename!.characters.count - 1))
+                                }
+                            }
+                        }
                     }
                 }
             case "content-type":
-                print (header.name, header.value)
+                mime = header.value.lowercaseString
             case "content-transfer-encoding":
                 switch header.value.lowercaseString {
                 case "7bit", "8bit", "binary":
@@ -169,9 +180,19 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
         }
     
         if let name = name where isFormData == true {
-            outData.append(0) // zero terminate outData
-            if let value = String(CString: UnsafePointer<CChar>(outData), encoding: NSUTF8StringEncoding) {
-                return (name: name, value: value, data: nil)
+            if let filename = filename {
+                var file: UploadedFile
+                if mime == nil {
+                    file = UploadedFile(data: outData, filename: filename)
+                } else {
+                    file = UploadedFile(data: outData, filename: filename, mimeType: mime!)
+                }
+                return (name:name, value: nil, file: file)
+            } else {
+                outData.append(0) // zero terminate outData
+                if let value = String(CString: UnsafePointer<CChar>(outData), encoding: NSUTF8StringEncoding) {
+                    return (name: name, value: value, file: nil)
+                }
             }
         }
         return nil

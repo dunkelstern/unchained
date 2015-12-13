@@ -21,7 +21,7 @@ public class Session {
 }
 
 /// Session extension for HTTPRequest
-extension HTTPRequest {
+public extension HTTPRequest {
     public var session:Session? {
         
         get {
