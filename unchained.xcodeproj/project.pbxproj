@@ -15,6 +15,8 @@
 		422B35041C0D02A6005C3606 /* middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B35031C0D02A6005C3606 /* middleware.swift */; };
 		422B35061C0D02B1005C3606 /* unchained.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422B35051C0D02B1005C3606 /* unchained.swift */; };
 		4236360A1C1B80D200DB2160 /* httprequest_postdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636091C1B80D200DB2160 /* httprequest_postdata.swift */; };
+		4236360D1C1CF1FC00DB2160 /* base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236360C1C1CF1FC00DB2160 /* base64.swift */; };
+		423636121C1CFDC400DB2160 /* encoder_decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636101C1CFDB300DB2160 /* encoder_decoder.swift */; };
 		42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A5F1C17AC6C00735B38 /* SwiftyRegex.framework */; };
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
 		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
@@ -112,6 +114,8 @@
 		422B35031C0D02A6005C3606 /* middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = middleware.swift; sourceTree = "<group>"; };
 		422B35051C0D02B1005C3606 /* unchained.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unchained.swift; sourceTree = "<group>"; };
 		423636091C1B80D200DB2160 /* httprequest_postdata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = httprequest_postdata.swift; path = post/httprequest_postdata.swift; sourceTree = "<group>"; };
+		4236360C1C1CF1FC00DB2160 /* base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = base64.swift; sourceTree = "<group>"; };
+		423636101C1CFDB300DB2160 /* encoder_decoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = encoder_decoder.swift; sourceTree = "<group>"; };
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			children = (
 				422570D11C0D00640011563E /* unchainedTests.swift */,
 				422570D31C0D00640011563E /* Info.plist */,
+				423636101C1CFDB300DB2160 /* encoder_decoder.swift */,
 			);
 			name = tests;
 			path = unchainedTests;
@@ -191,6 +196,7 @@
 		422B34FD1C0D01FB005C3606 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4236360B1C1CF1EB00DB2160 /* tools */,
 				42C86B401C18E8AD00735B38 /* middleware */,
 				422B34FF1C0D0280005C3606 /* router.swift */,
 				422B35011C0D029B005C3606 /* config.swift */,
@@ -207,6 +213,14 @@
 				423636091C1B80D200DB2160 /* httprequest_postdata.swift */,
 			);
 			name = post;
+			sourceTree = "<group>";
+		};
+		4236360B1C1CF1EB00DB2160 /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				4236360C1C1CF1FC00DB2160 /* base64.swift */,
+			);
+			path = tools;
 			sourceTree = "<group>";
 		};
 		42C86A571C17AC6C00735B38 /* Products */ = {
@@ -436,6 +450,7 @@
 				42C86B4A1C190C8900735B38 /* session_backend_inmemory.swift in Sources */,
 				422B35061C0D02B1005C3606 /* unchained.swift in Sources */,
 				42C86B501C1A1E7D00735B38 /* post_mime_multipart_middleware.swift in Sources */,
+				4236360D1C1CF1FC00DB2160 /* base64.swift in Sources */,
 				42C86B4E1C1A1E6400735B38 /* post_urlencoded_middleware.swift in Sources */,
 				422B35041C0D02A6005C3606 /* middleware.swift in Sources */,
 				4236360A1C1B80D200DB2160 /* httprequest_postdata.swift in Sources */,
@@ -449,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				422570D21C0D00640011563E /* unchainedTests.swift in Sources */,
+				423636121C1CFDC400DB2160 /* encoder_decoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

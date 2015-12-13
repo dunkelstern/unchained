@@ -187,8 +187,10 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
     }
 
     private func decodeBase64(generator: IndexingGenerator<ArraySlice<UInt8>>) -> [UInt8] {
-        // TODO: decode base64
-        return []
+        let data = generator.map { c -> UInt8 in
+            return c
+        }
+        return Base64.decode(data)
     }
 
 
