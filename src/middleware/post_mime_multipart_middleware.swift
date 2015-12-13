@@ -124,7 +124,6 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
         for header in result {
             switch header.name {
             case "content-disposition":
-                print (header.name, header.value)
                 let parts = header.value.componentsSeparatedByString(";")
                 for part in parts {
                     let tmp = part.lowercaseString.stringByTrimmingWhitespace()
@@ -145,8 +144,7 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
             case "content-type":
                 print (header.name, header.value)
             case "content-transfer-encoding":
-                print (header.name, header.value)
-                switch header.value {
+                switch header.value.lowercaseString {
                 case "7bit", "8bit", "binary":
                     continue // plain appending is done at the end
                 case "quoted-printable":
@@ -182,8 +180,15 @@ public class MultipartPostMiddleware: UnchainedMiddleware {
     // MARK: - Decoders
     
     private func decodeQuotedPrintable(generator: IndexingGenerator<ArraySlice<UInt8>>) -> [UInt8] {
-        // TODO: decode quoted printable
-        return []
+        var gen = generator
+        var data = ""
+        data.reserveCapacity(generator.underestimateCount())
+        while let c = gen.next() {
+            data.append(UnicodeScalar(c))
+        }
+        return QuotedPrintable.decode(data).utf8.map({ c -> UInt8 in
+            return c
+        })
     }
 
     private func decodeBase64(generator: IndexingGenerator<ArraySlice<UInt8>>) -> [UInt8] {

@@ -56,31 +56,26 @@ class codecTests: XCTestCase {
         string = String(CString: UnsafePointer<CChar>(result), encoding: NSUTF8StringEncoding)
         XCTAssert(string == "Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
     }
-    
-    func testBase64EnDecode() {
-        var b64 = Base64.encode("Hello World!")
-        var result = Base64.decode(b64)
-        result.append(0)
-        var string = String(CString: UnsafePointer<CChar>(result), encoding: NSUTF8StringEncoding)
-        XCTAssert(string == "Hello World!")
+        
+    func testQuotedPrintableEncode() {
+        var encoded = QuotedPrintable.encode("Hello World")
+        XCTAssert(encoded == "Hello World")
+        
+        encoded = QuotedPrintable.encode("e = m * c^2")
+        XCTAssert(encoded == "e =3D m * c^2")
+        
+        encoded = QuotedPrintable.encode("Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
+        XCTAssert(encoded == "Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi=\r\n porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipi=\r\nscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
+    }
 
-
-        b64 = Base64.encode("Hello World")
-        result = Base64.decode(b64)
-        result.append(0)
-        string = String(CString: UnsafePointer<CChar>(result), encoding: NSUTF8StringEncoding)
-        XCTAssert(string == "Hello World")
-
-        b64 = Base64.encode("Hello You!")
-        result = Base64.decode(b64)
-        result.append(0)
-        string = String(CString: UnsafePointer<CChar>(result), encoding: NSUTF8StringEncoding)
-        XCTAssert(string == "Hello You!")
-
-        b64 = Base64.encode("Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.", linebreak: 76)
-        result = Base64.decode(b64)
-        result.append(0)
-        string = String(CString: UnsafePointer<CChar>(result), encoding: NSUTF8StringEncoding)
-        XCTAssert(string == "Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
+    func testQuotedPrintableDecode() {
+        var decoded = QuotedPrintable.decode("Hello World")
+        XCTAssert(decoded == "Hello World")
+     
+        decoded = QuotedPrintable.decode("e =3D m * c^2")
+        XCTAssert(decoded == "e = m * c^2")
+        
+        decoded = QuotedPrintable.decode("Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi=\r\n porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipi=\r\nscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
+        XCTAssert(decoded == "Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam.")
     }
 }
