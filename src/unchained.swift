@@ -28,13 +28,13 @@ public class UnchainedServer: TwoHundredServer {
     ///
     /// - parameter request: request to handle
     /// - returns: response to send
-    override public func handleRequest(request: HTTPRequest) -> HTTPResponse {
+    override public func handleRequest(request: HTTPRequest) -> HTTPResponseBase {
         // execute request middleware
         let result = self.executeRequestMiddleware(request)
         let modifiedRequest = result.request
         
         // if the middleware did not yield a response execute the request
-        var response: HTTPResponse?
+        var response: HTTPResponseBase?
         if result.response == nil {
             response = self.executeRequest(modifiedRequest)
         } else {
@@ -51,7 +51,7 @@ public class UnchainedServer: TwoHundredServer {
     }
     
     // MARK: - Private
-    private func executeRequestMiddleware(request: HTTPRequest) -> (request: HTTPRequest, response: HTTPResponse?) {
+    private func executeRequestMiddleware(request: HTTPRequest) -> (request: HTTPRequest, response: HTTPResponseBase?) {
         var modifiedRequest = request
         
         // Walk all middleware and combine request changes, if a middleware returns a response cancel processing
@@ -69,7 +69,7 @@ public class UnchainedServer: TwoHundredServer {
         return (request: modifiedRequest, response: nil)
     }
     
-    private func executeRequest(request: HTTPRequest) -> HTTPResponse? {
+    private func executeRequest(request: HTTPRequest) -> HTTPResponseBase? {
         // Walk all routes, return response of first match
         for route in self.config.routes {
             if let response = route.execute(request) {
@@ -79,7 +79,7 @@ public class UnchainedServer: TwoHundredServer {
         return nil
     }
     
-    private func executeResponseMiddleware(request: HTTPRequest, response: HTTPResponse) -> HTTPResponse {
+    private func executeResponseMiddleware(request: HTTPRequest, response: HTTPResponseBase) -> HTTPResponseBase {
         var modifiedResponse = response
         
         // Walk all middleware and combine responses

@@ -11,9 +11,12 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Templating engine (Stencil + Glue code)
 - Configuration for static files, media uploads and temporary files
 - Static file server response handlers (Should support HEAD requests)
+- Static file Response
 
 ### TODO
 
+- Redirect Response
+- URL reversing
 - CSRF middleware
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for DB backends
@@ -37,6 +40,6 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Session middleware
 - WWW-URL-Encoded forms
 - Multipart Request bodies (file uploads from browser)
-- JSON parser middleware (parses json and puts it in request.json)
+- JSON parser middleware (parses JSON and puts it in request.json)
 - JSON Response Serializer
 
