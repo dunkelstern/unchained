@@ -25,7 +25,6 @@
 		42C86B2C1C17BFB200735B38 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B2B1C17BFB200735B38 /* config.swift */; };
 		42C86B301C17C0FF00735B38 /* loginHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B2F1C17C0FF00735B38 /* loginHandler.swift */; };
 		42C86B321C17C10C00735B38 /* indexHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B311C17C10C00735B38 /* indexHandler.swift */; };
-		42C86B341C17C12200735B38 /* fileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86B331C17C12200735B38 /* fileHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +92,6 @@
 		42C86B2B1C17BFB200735B38 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		42C86B2F1C17C0FF00735B38 /* loginHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginHandler.swift; sourceTree = "<group>"; };
 		42C86B311C17C10C00735B38 /* indexHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = indexHandler.swift; sourceTree = "<group>"; };
-		42C86B331C17C12200735B38 /* fileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +168,6 @@
 				42C86B2B1C17BFB200735B38 /* config.swift */,
 				42C86B2F1C17C0FF00735B38 /* loginHandler.swift */,
 				42C86B311C17C10C00735B38 /* indexHandler.swift */,
-				42C86B331C17C12200735B38 /* fileHandler.swift */,
 			);
 			name = UnchainedApp;
 			path = unchained_app;
@@ -272,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42C86B341C17C12200735B38 /* fileHandler.swift in Sources */,
 				42C86B301C17C0FF00735B38 /* loginHandler.swift in Sources */,
 				42C86B0E1C17B52B00735B38 /* AppDelegate.swift in Sources */,
 				42C86B2C1C17BFB200735B38 /* config.swift in Sources */,

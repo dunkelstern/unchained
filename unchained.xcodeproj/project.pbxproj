@@ -24,6 +24,8 @@
 		4236362A1C1E005400DB2160 /* template_response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636291C1E005400DB2160 /* template_response.swift */; };
 		4236362C1C1E5A6A00DB2160 /* staticfile_response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236362B1C1E5A6A00DB2160 /* staticfile_response.swift */; };
 		4236362E1C1E5CBD00DB2160 /* mediafile_response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4236362D1C1E5CBD00DB2160 /* mediafile_response.swift */; };
+		423636311C1E5D9B00DB2160 /* staticfile_handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636301C1E5D9B00DB2160 /* staticfile_handler.swift */; };
+		423636331C1E64C000DB2160 /* mimetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636321C1E64C000DB2160 /* mimetype.swift */; };
 		42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A5F1C17AC6C00735B38 /* SwiftyRegex.framework */; };
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
 		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
@@ -158,6 +160,8 @@
 		423636291C1E005400DB2160 /* template_response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = template_response.swift; sourceTree = "<group>"; };
 		4236362B1C1E5A6A00DB2160 /* staticfile_response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = staticfile_response.swift; sourceTree = "<group>"; };
 		4236362D1C1E5CBD00DB2160 /* mediafile_response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mediafile_response.swift; sourceTree = "<group>"; };
+		423636301C1E5D9B00DB2160 /* staticfile_handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = staticfile_handler.swift; sourceTree = "<group>"; };
+		423636321C1E64C000DB2160 /* mimetype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mimetype.swift; sourceTree = "<group>"; };
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 		422B34FD1C0D01FB005C3606 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				4236362F1C1E5D8A00DB2160 /* response handlers */,
 				423636261C1E003800DB2160 /* response classes */,
 				4236360B1C1CF1EB00DB2160 /* tools */,
 				42C86B401C18E8AD00735B38 /* middleware */,
@@ -265,6 +270,7 @@
 			children = (
 				4236360C1C1CF1FC00DB2160 /* base64.swift */,
 				4236360E1C1CF20C00DB2160 /* quotedprintable.swift */,
+				423636321C1E64C000DB2160 /* mimetype.swift */,
 			);
 			path = tools;
 			sourceTree = "<group>";
@@ -290,6 +296,15 @@
 			);
 			name = "response classes";
 			path = responseClasses;
+			sourceTree = "<group>";
+		};
+		4236362F1C1E5D8A00DB2160 /* response handlers */ = {
+			isa = PBXGroup;
+			children = (
+				423636301C1E5D9B00DB2160 /* staticfile_handler.swift */,
+			);
+			name = "response handlers";
+			path = responseHandlers;
 			sourceTree = "<group>";
 		};
 		42C86A571C17AC6C00735B38 /* Products */ = {
@@ -545,8 +560,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423636311C1E5D9B00DB2160 /* staticfile_handler.swift in Sources */,
 				4236362A1C1E005400DB2160 /* template_response.swift in Sources */,
 				423636141C1DE69800DB2160 /* json_middleware.swift in Sources */,
+				423636331C1E64C000DB2160 /* mimetype.swift in Sources */,
 				42C86B381C17C14300735B38 /* responseHandler.swift in Sources */,
 				4236360F1C1CF20C00DB2160 /* quotedprintable.swift in Sources */,
 				42C86B4C1C190CC900735B38 /* session.swift in Sources */,

@@ -25,26 +25,20 @@ public class MediaFileResponse: HTTPResponseBase {
         
         let filename = request.config.mediaFilesDirectory + "/\(path)"
         
-        self.statusCode = statusCode
-        
         if let headers = headers {
             self.headers.appendContentsOf(headers)
         }
-        if let contentType = contentType {
-            self.headers.append(HTTPHeader("Content-Type", contentType))
-        } else {
-            // determine content type from file
-            var buffer = [CChar](count: 256, repeatedValue: 0)
-            let fp = popen("file --mime -b '\(filename)'", "r")
-            fread(&buffer, 1, 255, fp)
-            fclose(fp)
-            if let ct = String(CString: buffer, encoding: NSUTF8StringEncoding) {
-                self.headers.append(HTTPHeader("Content-Type", ct))
-            } else {
-                self.headers.append(HTTPHeader("Content-Type", "application/octet-stream"))
-            }
-        }
         
-        self.body = [.File(filename)]
+        if let ct = MimeType.fromFile(filename) {
+            self.statusCode = statusCode
+            self.body = [.File(filename)]
+            if let contentType = contentType {
+                self.headers.append(HTTPHeader("Content-Type", contentType))
+            } else {
+                self.headers.append(HTTPHeader("Content-Type", ct))
+            }
+        } else {
+            self.statusCode = .NotFound
+        }
     }
 }

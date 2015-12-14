@@ -25,7 +25,7 @@ public class FileExchangeConfig: UnchainedConfig {
         return [
             UnchainedRoute("^/$",                 handler: IndexHandler.forRoute()),
             UnchainedRoute("^/login$",            handler: LoginHandler.forRoute()),
-            UnchainedRoute("^/files/(?P<id>.+)$", handler: FileHandler.forRoute())
+            UnchainedRoute("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory))
         ]
     }
 }

@@ -8,12 +8,11 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- Static file server response handlers (Should support HEAD requests)
+- Redirect Response
+- URL reversing
 
 ### TODO
 
-- Redirect Response
-- URL reversing
 - CSRF middleware
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for DB backends
@@ -42,3 +41,4 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Templating engine (Stencil + Glue code)
 - Configuration for static files, media uploads and temporary files
 - Static/Media file Response
+- Static file server response handlers (Should support HEAD requests)
