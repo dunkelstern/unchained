@@ -8,9 +8,7 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- Configuration for static files, media uploads and temporary files
 - Static file server response handlers (Should support HEAD requests)
-- Static file Response
 
 ### TODO
 
@@ -42,3 +40,5 @@ See `demo/FileExchange` for a OSX demonstration app.
 - JSON parser middleware (parses JSON and puts it in request.json)
 - JSON Response Serializer
 - Templating engine (Stencil + Glue code)
+- Configuration for static files, media uploads and temporary files
+- Static/Media file Response

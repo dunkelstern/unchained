@@ -29,6 +29,15 @@ public protocol UnchainedConfig {
     
     /// Template storage location (stencil templates)
     var templateDirectory: String { get }
+    
+    /// Static file storage location (css and javascript files, images)
+    var staticFilesDirectory: String { get }
+
+    /// Media file storage location (generated files, uploaded content)
+    var mediaFilesDirectory: String { get }
+
+    /// Temporary file storage location
+    var temporaryDirectory: String { get }
 }
 
 /// Default settings
@@ -51,6 +60,18 @@ extension UnchainedConfig {
     
     public var templateDirectory: String {
         return self.workDir + "/templates"
+    }
+    
+    public var staticFilesDirectory: String {
+        return self.workDir + "/static"
+    }
+
+    public var mediaFilesDirectory: String {
+        return self.workDir + "/media"
+    }
+    
+    public var temporaryDirectory: String {
+        return "/tmp"
     }
 
     private var workDir: String {
