@@ -31,7 +31,8 @@ public class UnchainedServer: TwoHundredServer {
     override public func handleRequest(request: HTTPRequest) -> HTTPResponseBase {
         // execute request middleware
         let result = self.executeRequestMiddleware(request)
-        let modifiedRequest = result.request
+        var modifiedRequest = result.request
+        modifiedRequest.config = self.config
         
         // if the middleware did not yield a response execute the request
         var response: HTTPResponseBase?

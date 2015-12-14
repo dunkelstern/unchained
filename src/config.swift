@@ -46,3 +46,19 @@ extension UnchainedConfig {
         return [UnchainedRoute]()
     }
 }
+
+/// Add config to request
+extension HTTPRequest {
+    
+    /// Unchained config
+    public var config:UnchainedConfig {
+        
+        get {
+            return self.middlewareData["config"]! as! UnchainedConfig
+        }
+        
+        set(newValue) {
+            self.middlewareData["config"] = newValue
+        }
+    }
+}
