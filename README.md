@@ -16,6 +16,7 @@ See `demo/FileExchange` for a OSX demonstration app.
 - CSRF middleware
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for DB backends
+- Centralized logging
 - User model
 - Session Middleware backends other than in memory
 - HTTP Server Linux (Swift is missing GCD on linux)
