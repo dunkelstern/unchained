@@ -26,6 +26,9 @@ public protocol UnchainedConfig {
     
     /// URL routes, if no route matches the server returns a 404. First route that matches is executed
     var routes: [UnchainedRoute] { get }
+    
+    /// Template storage location (stencil templates)
+    var templateDirectory: String { get }
 }
 
 /// Default settings
@@ -44,6 +47,20 @@ extension UnchainedConfig {
     
     public var routes: [UnchainedRoute] {
         return [UnchainedRoute]()
+    }
+    
+    public var templateDirectory: String {
+        return self.workDir + "/templates"
+    }
+
+    private var workDir: String {
+        var buffer = [CChar](count: Int(FILENAME_MAX + 1), repeatedValue: 0)
+        if getcwd(&buffer, Int(FILENAME_MAX)) != nil {
+            if let path = String(CString: &buffer, encoding: NSUTF8StringEncoding) {
+                return path
+            }
+        }
+        return "."
     }
 }
 
