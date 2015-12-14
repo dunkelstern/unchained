@@ -9,7 +9,7 @@
 import twohundred
 
 /// URL Decoding POST data middleware
-public class URLEncodedPostMiddleware: UnchainedMiddleware {
+public class URLEncodedPostMiddleware: Middleware {
     public init() {}
     
     public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {

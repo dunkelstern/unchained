@@ -152,9 +152,9 @@ public extension UnchainedResponseHandler {
     ///
     /// Example:
     ///
-    ///     UnchainedRoute("^/$", handler: IndexHandler.forRoute(), name: "index")
+    ///     Route("^/$", handler: IndexHandler.forRoute(), name: "index")
     ///
-    public static func forRoute() -> UnchainedRoute.RequestHandler {
+    public static func forRoute() -> Route.RequestHandler {
         return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse in
             return self.init(request: request).dispatch(parameters, namedParameters: namedParameters)
         }

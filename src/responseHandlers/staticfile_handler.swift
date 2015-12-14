@@ -38,7 +38,7 @@ public class StaticFileHandler: UnchainedResponseHandler {
         return HTTPResponse(.NotFound)
     }
     
-    public static func forRoute(root: String) -> UnchainedRoute.RequestHandler {
+    public static func forRoute(root: String) -> Route.RequestHandler {
         return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse in
             return StaticFileHandler(request: request, root:root).dispatch(parameters, namedParameters: namedParameters)
         }

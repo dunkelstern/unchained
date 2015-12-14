@@ -7,13 +7,12 @@
 //
 
 import unchained
-import SwiftyRegex
 
 public class FileExchangeConfig: UnchainedConfig {
 
     public var serverName: String { return "localhost" }
     
-    public var middleware: [UnchainedMiddleware] {
+    public var middleware: [Middleware] {
         return [
             SessionMiddleware(store: InMemorySessionStore()),
             URLEncodedPostMiddleware(),
@@ -21,11 +20,11 @@ public class FileExchangeConfig: UnchainedConfig {
         ]
     }
     
-    public var routes: [UnchainedRoute] {
+    public var routes: [Route] {
         return [
-            UnchainedRoute("^/$",                 handler: IndexHandler.forRoute()),
-            UnchainedRoute("^/login$",            handler: LoginHandler.forRoute()),
-            UnchainedRoute("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory))
+            Route("^/$",                 handler: IndexHandler.forRoute()),
+            Route("^/login$",            handler: LoginHandler.forRoute()),
+            Route("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory))
         ]
     }
 }

@@ -11,7 +11,7 @@ import twohundred
 import SwiftyRegex
 
 /// Unchained route entry
-public struct UnchainedRoute {
+public struct Route {
     
     /// A route request handler, takes `request`, numbered `parameters` and `namedParameters`, returns `HTTPResponse`
     public typealias RequestHandler = ((request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse)
@@ -30,7 +30,7 @@ public struct UnchainedRoute {
             self.re = try RegEx(pattern: regex)
         } catch RegEx.Error.InvalidPattern(let offset, let message) {
             // TODO: Implement centralized logging
-            print("UnchainedRoute: Pattern parse error for pattern \(regex) at character \(offset): \(message)")
+            print("Route: Pattern parse error for pattern \(regex) at character \(offset): \(message)")
         } catch {
             // unused
         }

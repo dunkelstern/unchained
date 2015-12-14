@@ -22,10 +22,10 @@ public protocol UnchainedConfig {
     var serverName: String { get }
     
     /// Enabled middleware, empty by default
-    var middleware: [UnchainedMiddleware] { get }
+    var middleware: [Middleware] { get }
     
     /// URL routes, if no route matches the server returns a 404. First route that matches is executed
-    var routes: [UnchainedRoute] { get }
+    var routes: [Route] { get }
     
     /// Template storage location (stencil templates)
     var templateDirectory: String { get }
@@ -50,12 +50,12 @@ extension UnchainedConfig {
         return 8000
     }
     
-    public var middleware: [UnchainedMiddleware] {
-        return [UnchainedMiddleware]()
+    public var middleware: [Middleware] {
+        return [Middleware]()
     }
     
-    public var routes: [UnchainedRoute] {
-        return [UnchainedRoute]()
+    public var routes: [Route] {
+        return [Route]()
     }
     
     public var templateDirectory: String {

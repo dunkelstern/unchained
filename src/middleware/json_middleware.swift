@@ -10,7 +10,7 @@ import twohundred
 import DEjson
 
 /// JSON Decoding data middleware
-public class JSONMiddleware: UnchainedMiddleware {
+public class JSONMiddleware: Middleware {
     public init() {}
     
     public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {

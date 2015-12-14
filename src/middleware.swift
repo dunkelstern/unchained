@@ -10,7 +10,7 @@ import Darwin
 import twohundred
 
 /// Unchained middleware, modifies requests before routing and responses afterwards
-public protocol UnchainedMiddleware {
+public protocol Middleware {
     /// Process a request before anything other is done with it
     ///
     /// Unchained will not further call other (request-) middleware or even a router function if the
@@ -30,7 +30,7 @@ public protocol UnchainedMiddleware {
 }
 
 /// Default implementation does nothing
-extension UnchainedMiddleware {
+extension Middleware {
     public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)? {
         return nil // do nothing to neither request nor response
     }

@@ -8,7 +8,7 @@
 
 import twohundred
 
-public class SessionMiddleware: UnchainedMiddleware {
+public class SessionMiddleware: Middleware {
     let store: SessionStore
     
     public init(store: SessionStore) {
