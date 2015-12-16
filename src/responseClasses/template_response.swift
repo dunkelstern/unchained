@@ -37,9 +37,9 @@ public class TemplateResponse: HTTPResponseBase {
             do {
                 let body = try t.render(Context(dictionary: context), namespace: nil)
                 self.body.append(.StringData(body))
-            } catch StencilError.TemplateSyntaxError(let message) {
+            } catch let error as TemplateSyntaxError {
                 self.statusCode = .InternalServerError
-                self.body = [.StringData(message)]
+                self.body = [.StringData(error.description)]
             }
         } catch {
             self.statusCode = .InternalServerError

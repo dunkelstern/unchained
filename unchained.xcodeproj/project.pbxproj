@@ -162,6 +162,7 @@
 		4236362D1C1E5CBD00DB2160 /* mediafile_response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mediafile_response.swift; sourceTree = "<group>"; };
 		423636301C1E5D9B00DB2160 /* staticfile_handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = staticfile_handler.swift; sourceTree = "<group>"; };
 		423636321C1E64C000DB2160 /* mimetype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mimetype.swift; sourceTree = "<group>"; };
+		423636361C2226AF00DB2160 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = dependencies/twohundred/../../README.md; sourceTree = "<group>"; };
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
@@ -200,6 +201,7 @@
 		422570B81C0D00640011563E = {
 			isa = PBXGroup;
 			children = (
+				423636361C2226AF00DB2160 /* README.md */,
 				42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */,
 				42C86A621C17AC7100735B38 /* twohundred.xcodeproj */,
 				42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */,
