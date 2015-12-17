@@ -15,7 +15,7 @@ public class SessionMiddleware: Middleware {
         self.store = store
     }
     
-    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {
+    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)? {
         var modifiedRequest = request
         
         // try to restore a session
@@ -40,7 +40,7 @@ public class SessionMiddleware: Middleware {
         return (request: modifiedRequest, response: nil)
     }
     
-    public func response(request: HTTPRequest, response: HTTPResponse, config: UnchainedConfig) -> HTTPResponse? {
+    public func response(request: HTTPRequest, response: HTTPResponseBase, config: UnchainedConfig) -> HTTPResponseBase? {
         // send set cookie header
         if let session = request.session {
             let sessionCookie = Cookie(name: "sessionID", value: session.sessionID.description, domain: config.serverName, secure: false, httpOnly: false)

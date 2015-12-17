@@ -12,7 +12,7 @@ import twohundred
 public class URLEncodedPostMiddleware: Middleware {
     public init() {}
     
-    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {
+    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)? {
         guard request.header["content-type"] == "application/x-www-form-urlencoded" &&
               request.data != nil &&
               request.data!.count > 0 else {

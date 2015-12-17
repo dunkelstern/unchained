@@ -12,7 +12,7 @@ import twohundred
 public class MultipartPostMiddleware: Middleware {
     public init() {}
     
-    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponse?)? {
+    public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)? {
         guard let contentType = request.header["content-type"] where contentType.hasPrefix("multipart/form-data"),
               let data = request.data where data.count > 0 else {
                 return nil // not our case
