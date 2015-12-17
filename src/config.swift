@@ -21,6 +21,9 @@ public protocol UnchainedConfig {
     /// Server name, has no default, has to be overridden
     var serverName: String { get }
     
+    /// Path to the logfile, set to nil to log to stdout
+    var logfilePath: String? { get }
+    
     /// Enabled middleware, empty by default
     var middleware: [Middleware] { get }
     
@@ -48,6 +51,10 @@ extension UnchainedConfig {
     
     public var listenPort:UInt16 {
         return 8000
+    }
+    
+    public var logfilePath:String? {
+        return nil
     }
     
     public var middleware: [Middleware] {

@@ -17,7 +17,7 @@ public struct Route {
     public typealias RequestHandler = ((request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse)
     
     private var re: RegEx?
-    private var name: String?
+    public var name: String
     private var handler:RequestHandler
     
     /// Initialize a route
@@ -29,13 +29,18 @@ public struct Route {
         do {
             self.re = try RegEx(pattern: regex)
         } catch RegEx.Error.InvalidPattern(let offset, let message) {
-            // TODO: Implement centralized logging
-            print("Route: Pattern parse error for pattern \(regex) at character \(offset): \(message)")
+            Log.error("Route: Pattern parse error for pattern \(regex) at character \(offset): \(message)")
         } catch {
             // unused
         }
-        self.name = name
+
         self.handler = handler
+        
+        if let name = name {
+            self.name = name
+        } else {
+            self.name = "r'\(regex)'"
+        }
     }
     
     /// execute a route on a request

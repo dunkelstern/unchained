@@ -21,6 +21,10 @@ public class UnchainedServer: TwoHundredServer {
     /// - parameter config: configuration to run on
     public init(config: UnchainedConfig) {
         self.config = config
+        if let logfilePath = config.logfilePath {
+            Log.logFileName = logfilePath
+        }
+        Log.info("Starting server, listening on \(config.listenAddress):\(config.listenPort)")
         super.init(listenAddress: config.listenAddress, port: config.listenPort)
     }
     
@@ -39,6 +43,7 @@ public class UnchainedServer: TwoHundredServer {
         if result.response == nil {
             response = self.executeRequest(modifiedRequest)
         } else {
+            Log.info("\(request.header.method) \(request.header.url), \(response!.statusCode.rawValue.uppercaseString), from middleware")
             response = result.response!
         }
     
@@ -48,6 +53,7 @@ public class UnchainedServer: TwoHundredServer {
         }
         
         // nothing returned a response, default to 404
+        Log.info("No route found, returning 404")
         return HTTPResponse(.NotFound)
     }
     
@@ -59,6 +65,7 @@ public class UnchainedServer: TwoHundredServer {
         for middleware in self.config.middleware {
             if let result = middleware.request(request, config: self.config) {
                 if let newRequest = result.request {
+                    Log.debug("\(request.header.method) \(request.header.url), \(middleware.name) modified request")
                     modifiedRequest = newRequest
                 }
                 if let response = result.response {
@@ -74,6 +81,7 @@ public class UnchainedServer: TwoHundredServer {
         // Walk all routes, return response of first match
         for route in self.config.routes {
             if let response = route.execute(request) {
+                Log.info("\(request.header.method) \(request.header.url), \(response.statusCode.rawValue.uppercaseString), \(route.name)")
                 return response
             }
         }
@@ -86,6 +94,7 @@ public class UnchainedServer: TwoHundredServer {
         // Walk all middleware and combine responses
         for middleware in self.config.middleware {
             if let response = middleware.response(request, response: modifiedResponse, config: self.config) {
+                Log.debug("\(request.header.method) \(request.header.url), \(middleware.name) modified response")
                 modifiedResponse = response
             }
         }

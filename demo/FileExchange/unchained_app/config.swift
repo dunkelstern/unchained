@@ -22,9 +22,9 @@ public class FileExchangeConfig: UnchainedConfig {
     
     public var routes: [Route] {
         return [
-            Route("^/$",                 handler: IndexHandler.forRoute()),
-            Route("^/login$",            handler: LoginHandler.forRoute()),
-            Route("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory))
+            Route("^/$",                 handler: IndexHandler.forRoute(), name: "index"),
+            Route("^/login$",            handler: LoginHandler.forRoute(), name: "login"),
+            Route("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory), name: "files")
         ]
     }
 }

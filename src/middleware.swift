@@ -38,4 +38,8 @@ extension Middleware {
     public func response(request: HTTPRequest, response: HTTPResponseBase, config: UnchainedConfig) -> HTTPResponseBase? {
         return nil // do nothing to response
     }
+    
+    public var name: String {
+        return String(self.dynamicType)
+    }
 }

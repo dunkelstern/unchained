@@ -165,7 +165,7 @@ public class MultipartPostMiddleware: Middleware {
                     // decode base 64
                     outData.appendContentsOf(self.decodeBase64(gen))
                 default:
-                    print("Unknown encoding: \(header.value)")
+                    Log.warn("Unknown encoding: \(header.value)")
                 }
             default:
                 continue // just ignore for now
