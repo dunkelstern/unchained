@@ -9,7 +9,6 @@ See `demo/FileExchange` for a OSX demonstration app.
 ### In progress
 
 - URL reversing
-- Centralized logging
 
 ### TODO
 
@@ -43,3 +42,4 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Static/Media file Response
 - Static file server response handlers (Should support HEAD requests)
 - Redirect Response
+- Centralized logging
