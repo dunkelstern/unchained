@@ -8,13 +8,12 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- URL reversing
-
-### TODO
-
 - CSRF middleware
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for DB backends
+
+### TODO
+
 - User model
 - Session Middleware backends other than in memory
 - HTTP Server Linux (Swift is missing GCD on linux)
@@ -43,3 +42,4 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Static file server response handlers (Should support HEAD requests)
 - Redirect Response
 - Centralized logging
+- URL reversing

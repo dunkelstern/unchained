@@ -10,21 +10,18 @@ import unchained
 
 public class FileExchangeConfig: UnchainedConfig {
 
-    public var serverName: String { return "localhost" }
+    public var serverName: String = "voltaire.local"
+    public var externalServerURL: String = "http://voltaire.local"
+
+    public lazy var middleware: [Middleware] = [
+        SessionMiddleware(store: InMemorySessionStore()),
+        URLEncodedPostMiddleware(),
+        MultipartPostMiddleware()
+    ]
     
-    public var middleware: [Middleware] {
-        return [
-            SessionMiddleware(store: InMemorySessionStore()),
-            URLEncodedPostMiddleware(),
-            MultipartPostMiddleware()
-        ]
-    }
-    
-    public var routes: [Route] {
-        return [
-            Route("^/$",                 handler: IndexHandler.forRoute(), name: "index"),
-            Route("^/login$",            handler: LoginHandler.forRoute(), name: "login"),
-            Route("^/files/(.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory), name: "files")
-        ]
-    }
+    public lazy var routes: [Route] = [
+        Route("^/$",                 handler: IndexHandler.forRoute(), name: "index"),
+        Route("^/login$",            handler: LoginHandler.forRoute(), name: "login"),
+        Route("^/files/(?<filename>.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory), name: "files")
+    ]
 }

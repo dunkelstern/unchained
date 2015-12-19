@@ -103,19 +103,3 @@ public class UnchainedServer: TwoHundredServer {
         return modifiedResponse
     }
 }
-
-/// Route reversion
-public extension UnchainedServer {
-    
-    /// reverse a route
-    ///
-    /// - parameter name: the name of the route URL to produce
-    /// - parameter parameters: the parameters to substitute
-    /// - returns: URL of route with parameters
-    ///
-    /// - throws: Throws errors if route could not be reversed
-    public class func reverseRoute(name: String, parameters:[String:String]?) throws -> String {
-        // TODO: Implement route reversion
-        return ""
-    }
-}

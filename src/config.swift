@@ -20,14 +20,17 @@ public protocol UnchainedConfig {
     
     /// Server name, has no default, has to be overridden
     var serverName: String { get }
-    
+
+    /// External visible server base URL, has no default, has to be overridden
+    var externalServerURL: String { get }
+
     /// Path to the logfile, set to nil to log to stdout
     var logfilePath: String? { get }
     
     /// Enabled middleware, empty by default
     var middleware: [Middleware] { get }
     
-    /// URL routes, if no route matches the server returns a 404. First route that matches is executed
+    /// URL routes, if no route matches the server returns a 404. First route that matches is executed, use `lazy` to get access to `self`
     var routes: [Route] { get }
     
     /// Template storage location (stencil templates)
