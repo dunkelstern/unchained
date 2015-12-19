@@ -18,6 +18,9 @@ public class MimeType {
         let fp = popen("file --mime-type -b '\(filename)'", "r")
         fread(&buffer, 1, 255, fp)
         fclose(fp)
+        guard strnlen(buffer, 255) > 0 else {
+            return "application/octet-stream"
+        }
         buffer[(strnlen(buffer, 255) - 1)] = 0
         if let ct = String(CString: buffer, encoding: NSUTF8StringEncoding) {
             return ct
