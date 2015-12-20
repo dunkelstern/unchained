@@ -1,5 +1,5 @@
 //
-//  session.swift
+//  session_middleware.swift
 //  unchained
 //
 //  Created by Johannes Schriewer on 10/12/15.

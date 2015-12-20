@@ -39,7 +39,7 @@ public class JSONMiddleware: Middleware {
     }
 }
 
-/// Session extension for HTTPRequest
+/// JSON extension for HTTPRequest
 public extension HTTPRequest {
     public var json:JSONObject? {
         
