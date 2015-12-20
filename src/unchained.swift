@@ -63,7 +63,7 @@ public class UnchainedServer: TwoHundredServer {
         
         // Walk all middleware and combine request changes, if a middleware returns a response cancel processing
         for middleware in self.config.middleware {
-            if let result = middleware.request(request, config: self.config) {
+            if let result = middleware.request(modifiedRequest, config: self.config) {
                 if let newRequest = result.request {
                     Log.debug("\(request.header.method) \(request.header.url), \(middleware.name) modified request")
                     modifiedRequest = newRequest
