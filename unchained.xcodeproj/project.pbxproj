@@ -27,6 +27,7 @@
 		423636311C1E5D9B00DB2160 /* staticfile_handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636301C1E5D9B00DB2160 /* staticfile_handler.swift */; };
 		423636331C1E64C000DB2160 /* mimetype.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636321C1E64C000DB2160 /* mimetype.swift */; };
 		423636381C22271A00DB2160 /* redirect_response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423636371C22271A00DB2160 /* redirect_response.swift */; };
+		424DFD201C2623830080BFD1 /* csrf_middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424DFD1F1C2623830080BFD1 /* csrf_middleware.swift */; };
 		42C86A6F1C17AC8600735B38 /* SwiftyRegex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A5F1C17AC6C00735B38 /* SwiftyRegex.framework */; };
 		42C86A701C17AC8600735B38 /* twohundred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86A681C17AC7100735B38 /* twohundred.framework */; };
 		42C86B001C17B3B400735B38 /* Stencil.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42C86AFD1C17B3A400735B38 /* Stencil.framework */; };
@@ -165,6 +166,7 @@
 		423636321C1E64C000DB2160 /* mimetype.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mimetype.swift; sourceTree = "<group>"; };
 		423636361C2226AF00DB2160 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = dependencies/twohundred/../../README.md; sourceTree = "<group>"; };
 		423636371C22271A00DB2160 /* redirect_response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = redirect_response.swift; sourceTree = "<group>"; };
+		424DFD1F1C2623830080BFD1 /* csrf_middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = csrf_middleware.swift; path = middleware/csrf_middleware.swift; sourceTree = "<group>"; };
 		42C86A561C17AC6C00735B38 /* SwiftyRegex.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyRegex.xcodeproj; path = dependencies/SwiftyRegex/SwiftyRegex.xcodeproj; sourceTree = "<group>"; };
 		42C86A621C17AC7100735B38 /* twohundred.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = twohundred.xcodeproj; path = dependencies/twohundred/twohundred.xcodeproj; sourceTree = "<group>"; };
 		42C86AF71C17B3A400735B38 /* Stencil.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Stencil.xcodeproj; path = dependencies/Stencil/Stencil.xcodeproj; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				42C86B4D1C1A1E6400735B38 /* post_urlencoded_middleware.swift */,
 				42C86B4F1C1A1E7D00735B38 /* post_mime_multipart_middleware.swift */,
 				42C86B411C18EA0A00735B38 /* session_middleware.swift */,
+				424DFD1F1C2623830080BFD1 /* csrf_middleware.swift */,
 				423636131C1DE69800DB2160 /* json_middleware.swift */,
 			);
 			name = middleware;
@@ -583,6 +586,7 @@
 				42C86B4E1C1A1E6400735B38 /* post_urlencoded_middleware.swift in Sources */,
 				4236362E1C1E5CBD00DB2160 /* mediafile_response.swift in Sources */,
 				422B35041C0D02A6005C3606 /* middleware.swift in Sources */,
+				424DFD201C2623830080BFD1 /* csrf_middleware.swift in Sources */,
 				4236360A1C1B80D200DB2160 /* httprequest_postdata.swift in Sources */,
 				42C86B421C18EA0A00735B38 /* session_middleware.swift in Sources */,
 				4236362C1C1E5A6A00DB2160 /* staticfile_response.swift in Sources */,

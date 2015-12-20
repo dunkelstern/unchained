@@ -8,7 +8,6 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 ### In progress
 
-- CSRF middleware
 - Database backend (we'll need at least SQLite and PostgreSQL, probably MySQL)
 - Configuration for DB backends
 
@@ -43,3 +42,4 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Redirect Response
 - Centralized logging
 - URL reversing
+- CSRF middleware

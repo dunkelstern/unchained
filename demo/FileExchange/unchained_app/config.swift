@@ -16,7 +16,8 @@ public class FileExchangeConfig: UnchainedConfig {
     public lazy var middleware: [Middleware] = [
         SessionMiddleware(store: InMemorySessionStore()),
         URLEncodedPostMiddleware(),
-        MultipartPostMiddleware()
+        MultipartPostMiddleware(),
+        CSRFMiddleware()
     ]
     
     public lazy var routes: [Route] = [

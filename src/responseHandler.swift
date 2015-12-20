@@ -17,6 +17,9 @@ public protocol UnchainedResponseHandler {
     /// the request
     var request:HTTPRequest { get }
     
+    /// CSRF required for this request
+    var csrfRequired:Bool { get }
+    
     /// the dispatch function is called by the router to dispatch a call
     ///
     /// - parameter parameters: unnamed capture groups from the route
@@ -91,6 +94,11 @@ public protocol UnchainedResponseHandler {
 /// Default implementation for the `UnchainedResponseHandler` protocol
 public extension UnchainedResponseHandler {
     
+    /// By default all modifying requests need CSRF checks
+    public var csrfRequired: Bool {
+        return true
+    }
+    
     /// Default implementation of the dispatcher, very simple
     ///
     /// - parameter request: the HTTPRequest to handle
@@ -104,18 +112,32 @@ public extension UnchainedResponseHandler {
         case .GET:
             return self.get(parameters, namedParameters: namedParameters)
         case .POST:
-            return self.post(parameters, namedParameters: namedParameters)
+            if !self.csrfRequired || (self.request.csrfTestPassed != nil && self.request.csrfTestPassed!) {
+                return self.post(parameters, namedParameters: namedParameters)
+            }
         case .PUT:
-            return self.put(parameters, namedParameters: namedParameters)
+            if !self.csrfRequired || (self.request.csrfTestPassed != nil && self.request.csrfTestPassed!) {
+                return self.put(parameters, namedParameters: namedParameters)
+            }
         case .PATCH:
-            return self.patch(parameters, namedParameters: namedParameters)
+            if !self.csrfRequired || (self.request.csrfTestPassed != nil && self.request.csrfTestPassed!) {
+                return self.patch(parameters, namedParameters: namedParameters)
+            }
         case .DELETE:
-            return self.delete(parameters, namedParameters: namedParameters)
+            if !self.csrfRequired || (self.request.csrfTestPassed != nil && self.request.csrfTestPassed!) {
+                return self.delete(parameters, namedParameters: namedParameters)
+            }
         case .OPTIONS:
             return self.options(parameters, namedParameters: namedParameters)
         default:
             return HTTPResponse(.BadRequest)
         }
+        
+        if self.request.csrfTestPassed != nil && !self.request.csrfTestPassed! {
+            return HTTPResponse(.BadRequest, body: [.StringData("Invalid CSRF token")])
+        }
+        
+        return HTTPResponse(.InternalServerError)
     }
     
     // here follow the default implementations of the dispatcher which just return status 400 BAD REQUEST
