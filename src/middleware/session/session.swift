@@ -10,14 +10,20 @@ import twohundred
 
 /// Session Class
 public class Session {
-    var sessionID: UUID4
-    var data:[String:String]
+    public let sessionID: UUID4
+    public var data:[String:String]
     
     public init() {
         self.sessionID = UUID4()
         self.data = [String:String]()
         // TODO: save creation date
     }
+    
+    public init(sessionID: UUID4, data: [String:String]) {
+        self.sessionID = sessionID
+        self.data = data
+    }
+    
 }
 
 /// Session extension for HTTPRequest
