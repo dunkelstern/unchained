@@ -19,6 +19,12 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Big file caching while upload
 - Caching mechanism (perhaps backed by redis)
 - Chunked responses (continuing file downloads)
+- e-mail sending
+- gzip middleware
+- SSL/TLS
+- Connection timeouts
+- Session timeouts
+
 
 ### Done
 

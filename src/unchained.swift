@@ -53,7 +53,7 @@ public class UnchainedServer: TwoHundredServer {
         }
         
         // nothing returned a response, default to 404
-        Log.info("No route found, returning 404")
+        Log.info("\(request.header.method) \(request.header.url), 404 NOT FOUND, No route found")
         return HTTPResponse(.NotFound)
     }
     
