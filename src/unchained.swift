@@ -43,8 +43,8 @@ public class UnchainedServer: TwoHundredServer {
         if result.response == nil {
             response = self.executeRequest(modifiedRequest)
         } else {
-            Log.info("\(request.header.method) \(request.header.url), \(response!.statusCode.rawValue.uppercaseString), from middleware")
             response = result.response!
+            Log.info("\(request.header.method) \(request.header.url), \(response!.statusCode.rawValue.uppercaseString), from middleware")
         }
     
         // execute the response middleware
