@@ -1,2 +1,5 @@
 xcuserdata
 *.swp
+.build
+Packages/
+.DS_Store
