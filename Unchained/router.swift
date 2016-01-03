@@ -7,6 +7,7 @@
 //
 
 import TwoHundred
+import UnchainedString
 import UnchainedLogger
 import SwiftyRegex
 
@@ -146,7 +147,7 @@ public struct Route {
         // strip ^ on start
         if case .Text(let text) = components.first! {
             if text.characters.first! == "^" {
-                components[0] = .Text(text.substringFromIndex(text.startIndex.advancedBy(1)))
+                components[0] = .Text(text.subString(fromIndex: text.startIndex.advancedBy(1)))
             }
         }
 
@@ -155,7 +156,7 @@ public struct Route {
             if text.characters.last! == "$" {
                 components.removeLast()
                 if text.characters.count > 1 {
-                    components.append(.Text(text.substringToIndex(text.startIndex.advancedBy(text.characters.count - 2))))
+                    components.append(.Text(text.subString(toIndex: text.startIndex.advancedBy(text.characters.count - 2))))
                 }
             }
         }

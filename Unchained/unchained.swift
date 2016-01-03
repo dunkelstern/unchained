@@ -6,7 +6,12 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
+#if os(Linux)
+    import UnchainedGlibc
+#else
+    import Darwin
+#endif
+
 import TwoHundred
 import UnchainedLogger
 

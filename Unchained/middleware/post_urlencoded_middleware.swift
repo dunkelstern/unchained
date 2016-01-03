@@ -7,6 +7,7 @@
 //
 
 import TwoHundred
+import UnchainedString
 
 /// URL Decoding POST data middleware
 public class URLEncodedPostMiddleware: Middleware {
@@ -27,12 +28,12 @@ public class URLEncodedPostMiddleware: Middleware {
         if let body = String.fromCString(UnsafePointer<Int8>(modifiedRequest.data!)) {
             
             // split tuples
-            let tuples = body.componentsSeparatedByString("&")
+            let tuples = body.split("&")
         
             // create postData dict
             var postData = [String:String]()
             for item in tuples {
-                let parts = item.componentsSeparatedByString("=")
+                let parts = item.split("=")
                 if parts.count == 2 {
                     postData[parts[0].urlDecodedString()] = parts[1].urlDecodedString()
                 }

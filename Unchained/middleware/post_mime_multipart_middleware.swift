@@ -7,6 +7,7 @@
 //
 
 import TwoHundred
+import UnchainedString
 import UnchainedLogger
 import Base64
 import QuotedPrintable
@@ -24,9 +25,9 @@ public class MultipartPostMiddleware: Middleware {
         var modifiedRequest = request
 
         // get boundary
-        let components = contentType.componentsSeparatedByString(";")
+        let components = contentType.split(";")
         for component in components {
-            let parts = component.componentsSeparatedByString("=")
+            let parts = component.split("=")
             if parts[0].stringByTrimmingWhitespace() == "boundary" {
                 tmp = "--" + parts[1].stringByTrimmingWhitespace() + "\r\n"
                 break
@@ -128,28 +129,28 @@ public class MultipartPostMiddleware: Middleware {
         for header in result {
             switch header.name {
             case "content-disposition":
-                let parts = header.value.componentsSeparatedByString(";")
+                let parts = header.value.split(";")
                 for part in parts {
                     let tmp = part.lowercaseString.stringByTrimmingWhitespace()
                     if tmp == "form-data" {
                         isFormData = true
                     } else if tmp.hasPrefix("name") {
-                        let subparts = part.componentsSeparatedByString("=")
+                        let subparts = part.split("=")
                         if subparts.count == 2 {
                             name = subparts[1]
                             if name!.hasPrefix("\"") {
                                 if name!.hasSuffix("\"") {
-                                    name = name!.substringWithRange(name!.startIndex.advancedBy(1)..<name!.startIndex.advancedBy(name!.characters.count - 1))
+                                    name = name!.subString(name!.startIndex.advancedBy(1)..<name!.startIndex.advancedBy(name!.characters.count - 1))
                                 }
                             }
                         }
                     } else if tmp.hasPrefix("filename") {
-                        let subparts = part.componentsSeparatedByString("=")
+                        let subparts = part.split("=")
                         if subparts.count == 2 {
                             filename = subparts[1]
                             if filename!.hasPrefix("\"") {
                                 if filename!.hasSuffix("\"") {
-                                    filename = filename!.substringWithRange(filename!.startIndex.advancedBy(1)..<filename!.startIndex.advancedBy(filename!.characters.count - 1))
+                                    filename = filename!.subString(filename!.startIndex.advancedBy(1)..<filename!.startIndex.advancedBy(filename!.characters.count - 1))
                                 }
                             }
                         }
