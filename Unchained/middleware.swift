@@ -6,7 +6,6 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
 import TwoHundred
 
 /// Unchained middleware, modifies requests before routing and responses afterwards
@@ -20,7 +19,7 @@ public protocol Middleware {
     /// - parameter request: Request that is about to be processed
     /// - returns: Tuple of new HTTPRequest and HTTPResponse
     func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)?
-    
+
     /// Process a response before it will be delivered
     ///
     /// - parameter request: the request that triggered the response
@@ -34,11 +33,11 @@ extension Middleware {
     public func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)? {
         return nil // do nothing to neither request nor response
     }
-    
+
     public func response(request: HTTPRequest, response: HTTPResponseBase, config: UnchainedConfig) -> HTTPResponseBase? {
         return nil // do nothing to response
     }
-    
+
     public var name: String {
         return String(self.dynamicType)
     }

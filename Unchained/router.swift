@@ -6,38 +6,37 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
 import TwoHundred
 import UnchainedLogger
 import SwiftyRegex
 
 /// Unchained route entry
 public struct Route {
-    
+
     /// Router errors
     public enum Error: ErrorType {
         /// No route with that name exists
         case NoRouteWithThatName(name: String)
-        
+
         /// Route contains mix of numbered and named parameters
         case MixedNumberedAndNamedParameters
-        
+
         /// Missing parameter of `name` to call that route
         case MissingParameterForRoute(name: String)
-        
+
         /// Wrong parameter count for a route with unnamed parameters
         case WrongParameterCountForRoute
     }
-    
+
     /// A route request handler, takes `request`, numbered `parameters` and `namedParameters`, returns `HTTPResponse`
     public typealias RequestHandler = ((request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse)
-    
+
     /// Name of the route (used for route reversing)
     public var name: String
 
     private var re: RegEx?
     private var handler:RequestHandler
-    
+
     /// Initialize a route
     ///
     /// - parameter regex: Regex to match
@@ -53,14 +52,14 @@ public struct Route {
         }
 
         self.handler = handler
-        
+
         if let name = name {
             self.name = name
         } else {
             self.name = "r'\(regex)'"
         }
     }
-    
+
     /// execute a route on a request
     ///
     /// - parameter request: the request on which to execute this route
@@ -75,15 +74,15 @@ public struct Route {
         }
         return nil
     }
-    
+
     // MARK: - Internal
-    
+
     enum RouteComponentType {
         case Text(String)
         case NamedPattern(String)
         case NumberedPattern(Int)
     }
-    
+
     /// split a route regex into components for route reversal
     ///
     /// - returns: Array of route components
@@ -98,14 +97,14 @@ public struct Route {
         var currentComponent = ""
         currentComponent.reserveCapacity(pattern.characters.count)
         var gen = pattern.characters.generate()
-        
+
         while let c = gen.next() {
             switch c {
             case "(":
                 if openBrackets == 0 {
                     // split point
                     if currentComponent.characters.count > 0 {
-                        patternNum++
+                        patternNum += 1
                         components.append(.Text(currentComponent))
                         currentComponent.removeAll()
                     }
@@ -130,9 +129,9 @@ public struct Route {
                     }
                 }
             case "[":
-                openBrackets++
+                openBrackets += 1
             case "]":
-                openBrackets--
+                openBrackets -= 1
             case "\\":
                 // skip next char
                 gen.next()
@@ -143,14 +142,14 @@ public struct Route {
         if currentComponent.characters.count > 0 {
             components.append(.Text(currentComponent))
         }
-        
+
         // strip ^ on start
         if case .Text(let text) = components.first! {
             if text.characters.first! == "^" {
                 components[0] = .Text(text.substringFromIndex(text.startIndex.advancedBy(1)))
             }
         }
-        
+
         // strip $ on end
         if case .Text(let text) = components.last! {
             if text.characters.last! == "$" {
@@ -160,7 +159,7 @@ public struct Route {
                 }
             }
         }
-        
+
         return components
     }
 }
@@ -168,7 +167,7 @@ public struct Route {
 
 /// Route reversion
 public extension UnchainedResponseHandler {
-    
+
     /// reverse a route with named parameters
     ///
     /// - parameter name: the name of the route URL to produce
@@ -181,7 +180,7 @@ public extension UnchainedResponseHandler {
         guard let route = self.fetchRoute(name) else {
             throw Route.Error.NoRouteWithThatName(name: name)
         }
-        
+
         var result = ""
         if absolute {
             result.appendContentsOf(self.request.config.externalServerURL)
@@ -202,7 +201,7 @@ public extension UnchainedResponseHandler {
                 result.appendContentsOf(text)
             }
         }
-        
+
         return result
     }
 
@@ -223,7 +222,7 @@ public extension UnchainedResponseHandler {
         if absolute {
             result.appendContentsOf(self.request.config.externalServerURL)
         }
-        
+
         // Build route string
         for item in route {
             switch item {
@@ -239,7 +238,7 @@ public extension UnchainedResponseHandler {
                 result.appendContentsOf(text)
             }
         }
-        
+
         return result
     }
 
@@ -259,7 +258,7 @@ public extension UnchainedResponseHandler {
         if absolute {
             result.appendContentsOf(self.request.config.externalServerURL)
         }
-        
+
         // Build route string
         for item in route {
             switch item {
@@ -271,7 +270,7 @@ public extension UnchainedResponseHandler {
                 result.appendContentsOf(text)
             }
         }
-        
+
         return result
     }
 

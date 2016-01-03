@@ -6,7 +6,11 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
+#if os(Linux)
+    import UnchainedGlibc
+#else
+    import Darwin
+#endif
 
 public class MimeType {
     public class func fromFile(filename: String) -> String? {

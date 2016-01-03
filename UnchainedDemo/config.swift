@@ -21,8 +21,8 @@ public class FileExchangeConfig: UnchainedConfig {
     ]
 
     public lazy var routes: [Route] = [
-        Route("^/$",                 handler: IndexHandler.forRoute(), name: "index"),
-        Route("^/login$",            handler: LoginHandler.forRoute(), name: "login"),
-        Route("^/files/(?<filename>.+)$",       handler: StaticFileHandler.forRoute(self.mediaFilesDirectory), name: "files")
+        Route("^/$",                      handler: IndexHandler.forRoute(), name: "index"),
+        Route("^/login$",                 handler: LoginHandler.forRoute(), name: "login"),
+        Route("^/files/(?<filename>.+)$", handler: StaticFileHandler.forRoute(self.mediaFilesDirectory), name: "files")
     ]
 }

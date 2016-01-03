@@ -6,13 +6,17 @@
 //  Copyright © 2015 Johannes Schriewer. All rights reserved.
 //
 
-import Darwin
+#if os(Linux)
+    import UnchainedGlibc
+#else
+    import Darwin
+#endif
 
 import TwoHundred
 
 /// Template response, fills a Stencil template with content
 public class MediaFileResponse: HTTPResponseBase {
-    
+
     /// Init with template and context
     ///
     /// - parameter path: relative path to media file from configured media file base dir
@@ -22,13 +26,13 @@ public class MediaFileResponse: HTTPResponseBase {
     /// - parameter contentType: (optional) content type to send (defaults to calling `file --mime` on the file)
     public init(_ path: String, request: HTTPRequest, statusCode: HTTPStatusCode = .Ok, headers: [HTTPHeader]? = nil, contentType: String? = nil) {
         super.init()
-        
+
         let filename = request.config.mediaFilesDirectory + "/\(path)"
-        
+
         if let headers = headers {
             self.headers.appendContentsOf(headers)
         }
-        
+
         if let ct = MimeType.fromFile(filename) {
             self.statusCode = statusCode
             self.body = [.File(filename)]

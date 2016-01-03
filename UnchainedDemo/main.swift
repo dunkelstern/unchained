@@ -1,4 +1,9 @@
-import Darwin
+#if os(Linux)
+    import UnchainedGlibc
+#else
+    import Darwin
+#endif
+
 import Unchained
 
 let server = UnchainedServer(config: FileExchangeConfig())
