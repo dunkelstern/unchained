@@ -2,7 +2,7 @@
 
 Django like Swift Web-Framework
 
-See `demo/FileExchange` for a OSX demonstration app.
+See `UnchainedDemo` for a demonstration app.
 
 ## Roadmap
 
@@ -15,14 +15,12 @@ See `demo/FileExchange` for a OSX demonstration app.
 
 - User model
 - Session Middleware backends other than in memory
-- HTTP Server Linux (Swift is missing GCD on linux)
 - Big file caching while upload
 - Caching mechanism (perhaps backed by redis)
 - Chunked responses (continuing file downloads)
 - e-mail sending
 - gzip middleware
 - SSL/TLS
-- Connection timeouts
 - Session timeouts
 
 
@@ -49,3 +47,5 @@ See `demo/FileExchange` for a OSX demonstration app.
 - Centralized logging
 - URL reversing
 - CSRF middleware
+- HTTP Server Linux (Swift is missing GCD on linux)
+- Connection timeouts
