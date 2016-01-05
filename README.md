@@ -6,8 +6,8 @@ Django like Swift Web-Framework
 
 See Github wiki or "Docs" directory in Source.
 
-- [Quickstart](wiki/Quickstart)
-- [Full documentation](wiki/Home)
+- [Quickstart](../../wiki/Quickstart)
+- [Full documentation](../../wiki)
 
 ## License
 
