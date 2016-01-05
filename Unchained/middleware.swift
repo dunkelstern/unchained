@@ -17,7 +17,7 @@ public protocol Middleware {
     /// If the middleware decides it has nothing to modify it should just return nil
     ///
     /// - parameter request: Request that is about to be processed
-    /// - returns: Tuple of new HTTPRequest and HTTPResponse
+    /// - returns: Tuple of new HTTPRequest and HTTPResponseBase
     func request(request: HTTPRequest, config: UnchainedConfig) -> (request: HTTPRequest?, response: HTTPResponseBase?)?
 
     /// Process a response before it will be delivered

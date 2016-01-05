@@ -16,7 +16,7 @@ public class IndexHandler: UnchainedResponseHandler {
         self.request = request
     }
 
-    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponseBase {
         return HTTPResponse(.Ok, body: [.StringData("Hello world!")])
     }
 }

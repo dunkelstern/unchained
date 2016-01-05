@@ -16,11 +16,11 @@ public class LoginHandler: UnchainedResponseHandler {
         self.request = request
     }
 
-    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponseBase {
         return HTTPResponse(.Ok, body: [.StringData("<html><body><form method='POST' action='/login' enctype='multipart/form-data'><input type='text' name='username'><br><input type='password' name='password'><br><input type='file' name='upload'><br><input type='submit'><input type='hidden' name='CSRFToken' value='\(self.request.csrfToken)'></form></body></html>")])
     }
 
-    public func post(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+    public func post(parameters: [String], namedParameters: [String : String]) -> HTTPResponseBase {
         if let postData = request.postData {
             var responseString = ""
             for (name, value) in postData {

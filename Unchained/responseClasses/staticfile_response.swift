@@ -8,9 +8,9 @@
 
 import TwoHundred
 
-/// Template response, fills a Stencil template with content
+/// Static file response, just streams a file
 public class StaticFileResponse: HTTPResponseBase {
-    
+
     /// Init with template and context
     ///
     /// - parameter path: relative path to static file from configured static file base dir
@@ -20,7 +20,7 @@ public class StaticFileResponse: HTTPResponseBase {
     /// - parameter contentType: (optional) content type to send (defaults to calling `file --mime` on the file)
     public init(_ path: String, request: HTTPRequest, statusCode: HTTPStatusCode = .Ok, headers: [HTTPHeader]? = nil, contentType: String? = nil) {
         super.init()
-        
+
         let filename = request.config.staticFilesDirectory + "/\(path)"
 
         if let headers = headers {

@@ -10,8 +10,8 @@ import Unchained
 
 public class FileExchangeConfig: UnchainedConfig {
 
-    public var serverName: String = "voltaire.local"
-    public var externalServerURL: String = "http://voltaire.local"
+    public var serverName: String = "ampere.local"
+    public var externalServerURL: String = "http://ampere.local"
 
     public lazy var middleware: [Middleware] = [
         SessionMiddleware(store: InMemorySessionStore()),

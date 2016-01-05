@@ -24,8 +24,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func dispatch(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func dispatch(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the head function is called for any HEAD-request
     ///
@@ -33,8 +33,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func head(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func head(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the get function is called for any GET-request
     ///
@@ -42,8 +42,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func get(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func get(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the post function is called for any POST-request
     ///
@@ -51,8 +51,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func post(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func post(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the put function is called for any PUT-request
     ///
@@ -60,8 +60,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func put(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func put(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the patch function is called for any PATCH-request
     ///
@@ -69,8 +69,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func patch(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func patch(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the delete function is called for any DELETE-request
     ///
@@ -78,8 +78,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func delete(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func delete(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 
     /// the options function is called for any OPTIONS-request
     ///
@@ -87,8 +87,8 @@ public protocol UnchainedResponseHandler {
     ///
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    func options(parameters: [String], namedParameters: [String:String]) -> HTTPResponse
+    /// - returns: HTTPResponseBase
+    func options(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase
 }
 
 /// Default implementation for the `UnchainedResponseHandler` protocol
@@ -104,8 +104,8 @@ public extension UnchainedResponseHandler {
     /// - parameter request: the HTTPRequest to handle
     /// - parameter parameters: unnamed capture groups from the route
     /// - parameter namedParameters: named capture groups from the route
-    /// - returns: HTTPResponse
-    public func dispatch(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    /// - returns: HTTPResponseBase
+    public func dispatch(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         switch self.request.header.method {
         case .HEAD:
             return self.head(parameters, namedParameters: namedParameters)
@@ -142,31 +142,31 @@ public extension UnchainedResponseHandler {
     
     // here follow the default implementations of the dispatcher which just return status 400 BAD REQUEST
     
-    public func head(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func head(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
-    public func get(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func get(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
-    public func post(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func post(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
-    public func put(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func put(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
-    public func patch(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func patch(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
-    public func delete(parameters: [String], namedParameters: [String:String]) -> HTTPResponse  {
+    public func delete(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase  {
         return HTTPResponse(.BadRequest)
     }
     
-    public func options(parameters: [String], namedParameters: [String:String]) -> HTTPResponse {
+    public func options(parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase {
         return HTTPResponse(.BadRequest)
     }
     
@@ -177,7 +177,7 @@ public extension UnchainedResponseHandler {
     ///     Route("^/$", handler: IndexHandler.forRoute(), name: "index")
     ///
     public static func forRoute() -> Route.RequestHandler {
-        return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse in
+        return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase in
             return self.init(request: request).dispatch(parameters, namedParameters: namedParameters)
         }
     }

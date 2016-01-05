@@ -29,8 +29,8 @@ public struct Route {
         case WrongParameterCountForRoute
     }
 
-    /// A route request handler, takes `request`, numbered `parameters` and `namedParameters`, returns `HTTPResponse`
-    public typealias RequestHandler = ((request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse)
+    /// A route request handler, takes `request`, numbered `parameters` and `namedParameters`, returns `HTTPResponseBase`
+    public typealias RequestHandler = ((request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase)
 
     /// Name of the route (used for route reversing)
     public var name: String
@@ -65,7 +65,7 @@ public struct Route {
     ///
     /// - parameter request: the request on which to execute this route
     /// - returns: response to the request or nil if the route does not match
-    public func execute(request: HTTPRequest) -> HTTPResponse? {
+    public func execute(request: HTTPRequest) -> HTTPResponseBase? {
         guard let re = self.re else {
             return nil
         }

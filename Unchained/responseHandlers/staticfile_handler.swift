@@ -22,7 +22,7 @@ public class StaticFileHandler: UnchainedResponseHandler {
         self.root = root
     }
     
-    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+    public func get(parameters: [String], namedParameters: [String : String]) -> HTTPResponseBase {
         let filename = self.root + "/\(parameters[1])"
         if let contentType = MimeType.fromFile(filename) {
             return HTTPResponse(.Ok, body: [.File(filename)], contentType: contentType)
@@ -30,7 +30,7 @@ public class StaticFileHandler: UnchainedResponseHandler {
         return HTTPResponse(.NotFound)
     }
     
-    public func head(parameters: [String], namedParameters: [String : String]) -> HTTPResponse {
+    public func head(parameters: [String], namedParameters: [String : String]) -> HTTPResponseBase {
         let filename = self.root + "/\(parameters[1])"
         if let contentType = MimeType.fromFile(filename) {
             return HTTPResponse(.Ok, body: [.File(filename)], contentType: contentType)
@@ -39,7 +39,7 @@ public class StaticFileHandler: UnchainedResponseHandler {
     }
     
     public static func forRoute(root: String) -> Route.RequestHandler {
-        return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponse in
+        return { (request: HTTPRequest, parameters: [String], namedParameters: [String:String]) -> HTTPResponseBase in
             return StaticFileHandler(request: request, root:root).dispatch(parameters, namedParameters: namedParameters)
         }
     }
