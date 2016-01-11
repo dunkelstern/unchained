@@ -29,6 +29,7 @@ let package = Package(
         .Package(url:"https://github.com/dunkelstern/QuotedPrintable.git", majorVersion: 0),
         .Package(url:"https://github.com/dunkelstern/pcre.git", majorVersion: 0),
         .Package(url:"https://github.com/dunkelstern/SwiftyRegex.git", majorVersion: 1),
+        .Package(url:"https://github.com/dunkelstern/PathKit.git", majorVersion: 0),
         .Package(url:"https://github.com/dunkelstern/Stencil.git", majorVersion: 0),
         .Package(url:"https://github.com/dunkelstern/UnchainedUUID.git", majorVersion: 0)
     ]
